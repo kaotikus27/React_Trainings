@@ -1,0 +1,1 @@
+"# React_Trainings"  initgit add README.mdgit commit -m "first commit"git branch -M maingit remote add origin https://github.com/kaotikus27/React_Trainings.gitgit push -u origin main
