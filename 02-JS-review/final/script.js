@@ -159,11 +159,7 @@ console.log(author, title, genres);
 // const secondaryGenre = genres[1];
 
 const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
-console.log(primaryGenre, secondaryGenre);
-
-/*
-
-
+console.log(primaryGenre, secondaryGenre, otherGenres);
 
 const newGenres = ["epic fantasy", ...genres];
 newGenres;
@@ -176,8 +172,17 @@ const updatedBook = {
   // Overwriting an existing property
   pages: 1210,
 };
+
 updatedBook;
 
+const summary = `${title}, a ${pages}-page long book, was written by ${author} 
+and published in ${publicationDate.split("-")[0]}`;
+summary;
+
+const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
+pagesRange;
+
+/*
 // function getYear(str) {
 //   return str.split("-")[0];
 // }
@@ -306,7 +311,7 @@ async function getTodos() {
   return data;
 }
 
-const todos = getTodos();
-console.log(todos);
+// const todos = getTodos();
+// console.log(todos);
 
-console.log("jonas");
+// console.log("jonas");
