@@ -175,27 +175,22 @@ const updatedBook = {
 
 updatedBook;
 
-const summary = `${title}, a ${pages}-page long book, was written by ${author} 
-and published in ${publicationDate.split("-")[0]}`;
-summary;
+// const summary = `${title}, a ${pages}-page long book, was written by ${author}
+// and published in ${publicationDate.split("-")[0]}`;
+// summary;
 
 const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
 pagesRange;
-
-/*
-// function getYear(str) {
-//   return str.split("-")[0];
-// }
 
 const getYear = (str) => str.split("-")[0];
 console.log(getYear(publicationDate));
 
 const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${getYear(
-  publicationDate
+  publicationDate,
 )}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie`;
 summary;
 
-const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
+// const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
 pagesRange;
 console.log(`The book has ${pagesRange} pages`);
 
@@ -230,9 +225,7 @@ function getTotalReviewCount(book) {
 }
 
 console.log(getTotalReviewCount(book));
-*/
 
-/*
 function getTotalReviewCount(book) {
   const goodreads = book.reviews?.goodreads?.reviewsCount;
   const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
@@ -292,9 +285,16 @@ booksAfterDelete;
 
 // 3) Update book object in the array
 const booksAfterUpdate = booksAfterDelete.map((book) =>
-  book.id === 1 ? { ...book, pages: 1210 } : book
+  book.id === 1 ? { ...book, pages: 1210 } : book,
 );
 booksAfterUpdate;
+
+/*
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+
+
 */
 
 // fetch("https://jsonplaceholder.typicode.com/todos")
