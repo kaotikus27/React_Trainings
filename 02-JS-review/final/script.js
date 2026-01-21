@@ -144,9 +144,7 @@ function getBook(id) {
 }
 
 // Destructuring
-
-/*
-const book = getBook(3);
+const book = getBook(2);
 book;
 
 // const title = book.title;
@@ -161,7 +159,11 @@ console.log(author, title, genres);
 // const secondaryGenre = genres[1];
 
 const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
-console.log(primaryGenre, secondaryGenre, otherGenres);
+console.log(primaryGenre, secondaryGenre);
+
+/*
+
+
 
 const newGenres = ["epic fantasy", ...genres];
 newGenres;
