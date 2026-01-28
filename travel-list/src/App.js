@@ -9,10 +9,12 @@ const initialItems = [
 export default function App() {
   return (
     <div className="app">
-      <Logo />
+      {/* <Logo />
       <Form />
       <PackingList />
-      <Stats />
+      <Stats /> */}
+
+      <FlashCards />
     </div>
   );
 }
@@ -89,5 +91,44 @@ function Stats() {
     <footer className="stats">
       <em>💼 You have x items on your list, and you already packed x (X%)</em>
     </footer>
+  );
+}
+
+const questions = [
+  {
+    id: 325,
+    question: " test 1 Question",
+    answer: "test 1 Answer",
+  },
+  {
+    id: 326,
+    question: " test 2 Question",
+    answer: "test 2 Answer",
+  },
+  {
+    id: 327,
+    question: " test 3 Question",
+    answer: "test 3 Answer",
+  },
+  {
+    id: 328,
+    question: " test 4Q uestion",
+    answer: "test 4 Answer",
+  },
+];
+
+function FlashCards() {
+  const [selectedId, setSelectedId] = useState(null);
+
+  return (
+    <div>
+      {questions.map((question) => (
+        <div key={question.id}>
+          <p>
+            {question.id === selectedId ? question.answer : question.question}
+          </p>
+        </div>
+      ))}
+    </div>
   );
 }
