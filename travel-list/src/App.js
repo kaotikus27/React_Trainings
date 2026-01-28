@@ -9,12 +9,12 @@ const initialItems = [
 export default function App() {
   return (
     <div className="app">
-      {/* <Logo />
+      <Logo />
       <Form />
       <PackingList />
-      <Stats /> */}
+      <Stats />
 
-      <FlashCards />
+      {/* <FlashCards /> */}
     </div>
   );
 }
@@ -121,7 +121,7 @@ function FlashCards() {
   const [selectedId, setSelectedId] = useState(null);
 
   function handleClick(id) {
-    setSelectedId(id);
+    setSelectedId(id !== selectedId ? id : null);
   }
 
   return (
