@@ -28,6 +28,8 @@ export default function App() {
   const [friends, setFriends] = useState(initialFriends);
   const [showAddFriend, setShowAddFriend] = useState(false);
 
+  const [setlectedFriend, setSelectedFriend] = useState(null);
+
   function handleShowAddFriend() {
     setShowAddFriend((show) => !show);
   }
@@ -38,14 +40,14 @@ export default function App() {
 
   return (
     <div className="app">
-      <div class="sidebard">
+      <div class="sidebar">
         <FriendList friends={friends} />
         {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
         <Button onClick={handleShowAddFriend}>
           {showAddFriend ? "Close" : "Add Friend"}
         </Button>
       </div>
-      <FormSplitBill />
+      {setlectedFriend && <FormSplitBill />}
     </div>
   );
 }
