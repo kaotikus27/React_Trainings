@@ -1,6 +1,6 @@
 import Button from "./Buttons/Buttons";
 
-export default function Friend({ friend }) {
+export default function Friend({ friend, onSelection }) {
   return (
     <li>
       <img src={friend.image} alt={friend.name} />
@@ -17,7 +17,8 @@ export default function Friend({ friend }) {
         </p>
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
-      <Button>Select</Button>
+
+      <Button onClick={() => onSelection(friend)}>Select</Button>
     </li>
   );
 }
