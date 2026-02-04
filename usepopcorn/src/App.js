@@ -156,22 +156,6 @@ function MovieList({ movies }) {
   );
 }
 
-function ListBoX({ movies }) {
-  const [isOpen1, setIsOpen1] = useState(true);
-
-  return (
-    <div className="box">
-      <button
-        className="btn-toggle"
-        onClick={() => setIsOpen1((open) => !open)}
-      >
-        {isOpen1 ? "–" : "+"}
-      </button>
-      {isOpen1 && <MovieList movies={movies} />}
-    </div>
-  );
-}
-
 function WatchedMovieList({ watched }) {
   return (
     <ul className="list">
@@ -205,13 +189,24 @@ function WatchedMovie({ movie }) {
   );
 }
 
-function Main({ movies }) {
+function ListBoX({ children }) {
+  const [isOpen1, setIsOpen1] = useState(true);
+
   return (
-    <main className="main">
-      <ListBoX movies={movies} />
-      <WatchBox />
-    </main>
+    <div className="box">
+      <button
+        className="btn-toggle"
+        onClick={() => setIsOpen1((open) => !open)}
+      >
+        {isOpen1 ? "–" : "+"}
+      </button>
+      {isOpen1 && children}
+    </div>
   );
+}
+
+function Main({ children }) {
+  return <main className="main">{children}</main>;
 }
 
 function NavBar({ children }) {
@@ -220,6 +215,7 @@ function NavBar({ children }) {
 
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
+
   return (
     <>
       <NavBar>
@@ -227,7 +223,13 @@ export default function App() {
         <SearchBar />
         <NumResults movies={movies} />
       </NavBar>
-      <Main movies={movies} />
+
+      <Main>
+        <ListBoX>
+          <MovieList movies={movies} />
+        </ListBoX>
+        <WatchBox />
+      </Main>
     </>
   );
 }
