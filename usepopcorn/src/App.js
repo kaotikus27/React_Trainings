@@ -167,29 +167,7 @@ function WatchedMovie({ movie }) {
   );
 }
 
-// function WatchBox() {
-//   const [isOpen2, setIsOpen2] = useState(true);
-//   const [watched, setWatched] = useState(tempWatchedData);
-
-//   return (
-//     <div className="box">
-//       <button
-//         className="btn-toggle"
-//         onClick={() => setIsOpen2((open) => !open)}
-//       >
-//         {isOpen2 ? "–" : "+"}
-//       </button>
-//       {isOpen2 && (
-//         <>
-//           <WatchedSummary watched={watched} />
-//           <WatchedMovieList watched={watched} />
-//         </>
-//       )}
-//     </div>
-//   );
-// }
-
-function BoX({ children }) {
+function BoX({ element }) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -197,7 +175,7 @@ function BoX({ children }) {
       <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
         {isOpen ? "–" : "+"}
       </button>
-      {isOpen && children}
+      {isOpen && element}
     </div>
   );
 }
@@ -222,13 +200,22 @@ export default function App() {
       </NavBar>
 
       <Main>
-        <BoX>
+        <BoX element={<MovieList movies={movies} />} />
+        <BoX
+          element={
+            <>
+              <WatchedSummary watched={watched} />
+              <WatchedMovieList watched={watched} />
+            </>
+          }
+        />
+        {/* <BoX>
           <MovieList movies={movies} />
         </BoX>
         <BoX>
           <WatchedSummary watched={watched} />
           <WatchedMovieList watched={watched} />
-        </BoX>
+        </BoX> */}
       </Main>
     </>
   );
