@@ -167,7 +167,7 @@ function WatchedMovie({ movie }) {
   );
 }
 
-function BoX({ element }) {
+function BoX({ children }) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -175,7 +175,7 @@ function BoX({ element }) {
       <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
         {isOpen ? "–" : "+"}
       </button>
-      {isOpen && element}
+      {isOpen && children}
     </div>
   );
 }
@@ -200,22 +200,13 @@ export default function App() {
       </NavBar>
 
       <Main>
-        <BoX element={<MovieList movies={movies} />} />
-        <BoX
-          element={
-            <>
-              <WatchedSummary watched={watched} />
-              <WatchedMovieList watched={watched} />
-            </>
-          }
-        />
-        {/* <BoX>
+        <BoX>
           <MovieList movies={movies} />
         </BoX>
         <BoX>
           <WatchedSummary watched={watched} />
           <WatchedMovieList watched={watched} />
-        </BoX> */}
+        </BoX>
       </Main>
     </>
   );
